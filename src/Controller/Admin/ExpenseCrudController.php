@@ -3,7 +3,7 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Expense;
-use DateTime;
+use DateTimeImmutable;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
@@ -21,7 +21,7 @@ class ExpenseCrudController extends AbstractCrudController
 
     public function createEntity(string $entityFqcn) {
         $expense = new Expense();
-        $expense->date = new DateTime();
+        $expense->date = new DateTimeImmutable();
         $expense->isPaid = true;
 
         return $expense;

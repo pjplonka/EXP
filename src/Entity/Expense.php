@@ -3,7 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\ExpenseRepository;
-use DateTime;
+use DateTimeImmutable;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\ORM\Mapping\JoinTable;
@@ -26,8 +26,8 @@ class Expense
     #[ORM\Column(type: 'boolean')]
     public bool $isPaid;
 
-    #[ORM\Column(type: 'date')]
-    public DateTime $date;
+    #[ORM\Column(type: 'date_immutable')]
+    public DateTimeImmutable $date;
 
     #[ManyToMany(targetEntity: Label::class, inversedBy: 'expenses')]
     #[JoinTable(name: 'expenses_labels')]
